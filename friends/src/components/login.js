@@ -23,7 +23,7 @@ class Login extends React.Component {
     axios.post('http://localhost:5000/api/login', this.state.credentials)
     .then(res => {
     window.localStorage.setItem("token", JSON.stringify(res.data.payload))
-    this.props.history.push('/protected')
+    this.props.history.push('/Friends')
     }
     )
     .catch(err => console.log(err))
@@ -34,17 +34,20 @@ class Login extends React.Component {
       <div>
         <form onSubmit={this.login}>
           <input
+            placeholder="username"
             type="text"
             name="username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
           />
           <input
+            placeholder="password"
             type="password"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
+          
           <button>Log in</button>
         </form>
       </div>
