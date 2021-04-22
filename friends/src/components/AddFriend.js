@@ -16,14 +16,14 @@ function FriendsPage() {
   }
   const onSubmit = (e) => {
     e.preventDefault();
-    const addNewFriend={
+    const newFriend={
         id: new Date().getTime(),
         name: data.name,
         age: data.age,
         email: data.email,
     }
     axiosWithAuth()
-    .post('/api/friends', addNewFriend)
+    .post('/api/friends', newFriend)
     .then((res)=>{console.log("added")
 
     },)
